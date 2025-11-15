@@ -1,0 +1,7 @@
+blueprint: name: Auto-Off After 30 Seconds domain: automation input:
+target_switch: name: Switch selector: entity: domain: switch
+
+trigger: - platform: state entity_id: !input target_switch to: “on”
+
+action: - delay: “00:00:30” - service: switch.turn_off target:
+entity_id: !input target_switch
