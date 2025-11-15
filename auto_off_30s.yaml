@@ -1,12 +1,18 @@
 blueprint:
-  name: "Auto-Off: {{ target_switch }}"
+  name: Auto-Off (Dynamic Name)
   domain: automation
   input:
     target_switch:
-      name: Switch
+      name: Target Switch
       selector:
         entity:
           domain: switch
+
+variables:
+  target_switch: !input target_switch
+  switch_name: "{{ states[target_switch].name }}"
+
+name: "Auto-Off: {{ switch_name }}"
 
 trigger:
   - platform: state
