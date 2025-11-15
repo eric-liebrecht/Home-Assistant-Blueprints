@@ -1,5 +1,5 @@
 blueprint:
-  name: Auto-Off: {{ switch_name }}
+  name: Auto-Off
   domain: automation
   input:
     target_switch:
@@ -12,6 +12,7 @@ variables:
   target_switch: !input target_switch
   switch_name: "{{ states[target_switch].name }}"
 
+alias: "Auto-Off: {{ switch_name }}"
 trigger:
   - platform: state
     entity_id: !input target_switch
