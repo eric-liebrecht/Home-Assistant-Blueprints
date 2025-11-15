@@ -1,5 +1,5 @@
 blueprint:
-  name: Auto-Off After 30 Seconds
+  name: "Auto-Off: {{ target_switch }}"
   domain: automation
   input:
     target_switch:
